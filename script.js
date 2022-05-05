@@ -163,7 +163,14 @@ const app = new Vue({
                     }
                 ],
             }
-        ]
+        ],
+        counterActiveUser: 0,
+        counterMessages:3,
         
-    }
+    },
+    methods: {
+        activeUser(index){
+          this.counterActiveUser = index;
+        }
+    },
 })

@@ -76,6 +76,10 @@
   border-bottom: 1px solid #dadbd4;
 }
 
+.chat-user:hover{
+  background-color: #e8eaeb;
+}
+
 .chat-user img{
   height: 70%;
   border-radius: 50%;
