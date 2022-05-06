@@ -168,24 +168,39 @@ const app = new Vue({
         counterMessages:3,
         flagStatus: false,
         newMessage: '',
+        seachUser:'',
         
     },
     methods: {
         activeUser(index){
           this.counterActiveUser = index;
         },
+        newDate(){
+            const current = new Date();
+            const data = current.getDate() +'/'+(current.getMonth()+1) +'/'+ current.getFullYear();
+            const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+            const date = data +' '+ time;
+            return date
+        },
         addNewMessage(){
-           const current = new Date();
-           const data = current.getDate() +'/'+(current.getMonth()+1) +'/'+ current.getFullYear();
-           const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
            const arrNewMessage = {
-              date: data +' '+ time,
+              date: this.newDate(),
               message: '',
               status: 'sent'
             }
             arrNewMessage.message = this.newMessage;
             this.users[this.counterActiveUser].messages.push(arrNewMessage);
             this.newMessage ='';
+            this.addNewRecievedMessage();
+        },
+        addNewRecievedMessage(){
+            const arrRecievedMessage = {
+                date: this.newDate(),
+                message: 'Si vola',
+                status: 'recieved'
+            }
+            this.users[this.counterActiveUser].messages.push(arrRecievedMessage);
+            
         }
     },
 })

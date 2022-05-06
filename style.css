@@ -107,6 +107,7 @@ img{
 
 .container-chat-right{
   height: calc(100% - 100px);
+  overflow-y: auto;
 }
 
 .message{
@@ -142,7 +143,7 @@ img{
 
 .input-mess{
   width: 80%;
-  height: 70%;
+  height: 60%;
   border: none;
   border-radius: 5px;
 }
