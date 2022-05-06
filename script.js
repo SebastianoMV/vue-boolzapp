@@ -166,6 +166,7 @@ const app = new Vue({
         ],
         counterActiveUser: 0,
         counterMessages:3,
+        flagStatus: false,
         
     },
     methods: {

@@ -17,8 +17,27 @@
     <div class="container-grey"></div>
     <div class="position-absolute smv-container-wa">
       <div class="container-top d-flex"> 
-        <div class="col col-4 h-100 border-right-gray"></div>
-        <div class="col col-8 h-100"></div>
+
+        <!-- TOP LEFT -->
+        <div class="col col-4 h-100 border-right-gray d-flex justify-content-between align-items-center">
+           <div class="h-100 d-flex align-items-center px-2">
+             <img src="img/avatar_io.jpg" alt="avatar user">
+             <h5>Seba</h5>
+           </div>
+           <div class="h-100 d-flex align-items-center justify-content-end px-2">
+            <i class="fa-solid fa-message mx-2"></i>
+            <i class="fa-solid fa-ellipsis-vertical mx-2"></i>
+           
+           </div>
+        </div>
+
+        <!-- TOP RIGHT -->
+        <div class="col col-8 h-100">
+          <div class="h-100 d-flex align-items-center px-2">
+            <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user">
+            <h5>{{users[counterActiveUser].name}}</h5>
+          </div>
+        </div>
       </div>
 
       <!-- MAIN  -->
@@ -56,7 +75,7 @@
         <!-- COLONNA MAIN DESTRA -->
         <div class="col col-8 h-100 container-destra position-relative">
           
-          <div class="message m-3" v-for="n in users[counterActiveUser].messages.length">
+          <div class="message m-3 d-flex received" v-for="n in users[counterActiveUser].messages.length">
             <div>{{users[counterActiveUser].messages[0].message}}</div>
             <div>{{users[counterActiveUser].messages[0].date}}</div>
             
