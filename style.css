@@ -1,27 +1,19 @@
 
 .smv-container-main{
   height: 100vh;
+  background-image: 
+  linear-gradient(to bottom,
+  #009688 0px,
+  #009688 15vh,
+  #dcdbd1 15vh,
+  #dcdbd1 100%);
 }
 
-.container-green{
-  background-color: #249688;
-  height: 15%;
-}
-
-.container-grey{
-  background-color: #dadbd4;
-  height: 85%;
-}
 
 .smv-container-wa{
   background-color: white;
   width: 80%;
   height: 95%;
-  z-index: 9999;
-  top: 2.5%;
-  bottom: 2.5%;
-  left: 10%;
-  right: 10%;
 }
 
 .container-top{
@@ -31,6 +23,7 @@
 
 .container-bot{
   height: calc(100% - 100px);
+  width: 100%;
 }
 
 .h-100{
@@ -44,6 +37,14 @@
 .allert-container{
   background-color: #8ed9fd;
   height: 100px;
+}
+
+.width-30{
+  width: 30%;
+}
+
+.width-70{
+  width: 70%;
 }
 
 /* CHAT */
@@ -66,8 +67,9 @@
 
 .chat-user-container{
   background-color: white;
-  width: 95%;
-  height: 93%;
+  width: 100%;
+  height: calc(100% - 37px);
+  overflow-y: auto;
 }
 
 .chat-user{
@@ -90,22 +92,57 @@ img{
   overflow: hidden;
 }
 
+.float-rigth-date{
+  float: right;
+  color: #dadbd4;
+  font-size: 15px;
+}
+
 /* COLONNA MAIN DESTRA */
 
-.container-destra{
+.container-right{
   background-image:  url(img/mine.jpg);
+  height: 100%;
+}
+
+.container-chat-right{
+  height: calc(100% - 100px);
 }
 
 .message{
   background-color: #fbfafb;
   border-radius: 10px;
-  width: 30%;
+  min-width: 40%;
   max-width: 60%;
+  padding: 5px;
+  clear: both;
+}
 
-  
+.sent{
+  float: right;
+  background-color: #d5f8ba;
 }
 
 .received{
-  background-color: #d5f8ba;
-  justify-content: flex-end;
+  float: left;
+}
+
+
+.message-date{
+  text-align: end;
+  color: grey;
+  font-size: 10px;
+}
+
+
+.footer-right{
+  height: 100px;
+  background-color: #f3eee9;
+}
+
+.input-mess{
+  width: 80%;
+  height: 70%;
+  border: none;
+  border-radius: 5px;
 }

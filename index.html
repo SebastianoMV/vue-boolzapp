@@ -12,15 +12,14 @@
 </head>
 <body>
 
-  <div id="app" class="smv-container-main position-relative">
-    <div class="container-green"></div>
-    <div class="container-grey"></div>
-    <div class="position-absolute smv-container-wa">
+  <div id="app" class="smv-container-main d-flex">
+    
+    <div class="smv-container-wa m-auto">
       <div class="container-top d-flex"> 
 
         <!-- TOP LEFT -->
-        <div class="col col-4 h-100 border-right-gray d-flex justify-content-between align-items-center">
-           <div class="h-100 d-flex align-items-center px-2">
+        <div class="width-30 h-100 border-right-gray d-flex justify-content-between align-items-center">
+           <div class="h-100 d-flex align-items-center px-2 ">
              <img src="img/avatar_io.jpg" alt="avatar user">
              <h5>Seba</h5>
            </div>
@@ -32,7 +31,7 @@
         </div>
 
         <!-- TOP RIGHT -->
-        <div class="col col-8 h-100">
+        <div class="width-70 h-100">
           <div class="h-100 d-flex align-items-center px-2">
             <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user">
             <h5>{{users[counterActiveUser].name}}</h5>
@@ -44,26 +43,26 @@
       <div class="container-bot d-flex"> 
 
          <!-- COLONNA MAIN SINISTRA -->
-        <div class="col col-4 h-100 border-right-gray">
+        <div class="width-30 h-100 border-right-gray">
 
           <!-- ALLERT -->
           <div class="allert-container"></div>
 
-          <!-- CHAT -->
+          <!-- CHAT LEFT-->
           <div class="chat-container pt-2">
             <div class="input-container m-auto mb-2 d-flex justify-content-between align-items-center">
               <i class="fa-solid fa-magnifying-glass m-auto"></i>
               <input class="input-form" type="text">
             </div>
-            <div class="chat-user-container border-right-gray overflow-auto">
+            <div class="chat-user-container border-right-gray">
 
               <!-- CARD CHAT USER -->
               <div class="chat-user d-flex" v-for="(user,index) in users" @click="counterActiveUser = index">
                 <img :src="`img/avatar${user.avatar}.jpg`" alt="">
                 <div class="last-message">
-                  <h5>{{user.name}}</h5>
+                  <h5><span>{{user.name}}</span> <span class="float-rigth-date">{{user.messages[user.messages.length-1].date}}</span></h5>
                   <p>{{user.messages[user.messages.length-1].message}}</p>
-                  <p>{{user.messages[user.messages.length-1].date}}</p>
+                  
                 </div>
                 
               </div>
@@ -73,15 +72,23 @@
 
 
         <!-- COLONNA MAIN DESTRA -->
-        <div class="col col-8 h-100 container-destra position-relative">
-          
-          <div class="message m-3 d-flex received" v-for="n in users[counterActiveUser].messages.length">
-            <div>{{users[counterActiveUser].messages[0].message}}</div>
-            <div>{{users[counterActiveUser].messages[0].date}}</div>
-            
+        <div class="width-70 container-right">
+          <div class="container-chat-right p-3">
+          <div class="message mb-3" v-for="n in users[counterActiveUser].messages.length " :class="users[counterActiveUser].messages[n-1].status">
+            <div>
+              <div>{{users[counterActiveUser].messages[n -1].message}}</div>
+              <div class="message-date" >{{users[counterActiveUser].messages[n-1].date}}</div>
+            </div>
           </div>
-
+         </div>
+          <!-- FOOTER RIGHT -->
+          <div class="footer-right w-100 d-flex justify-content-evenly align-items-center">
+            <i class="fa-regular fa-face-smile"></i>
+            <input v-model.trim="newMessage" class="input-mess" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addNewMessage">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
         </div>
+        
 
 
       </div>

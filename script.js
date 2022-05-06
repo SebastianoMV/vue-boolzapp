@@ -162,16 +162,30 @@ const app = new Vue({
                         status: 'received'
                     }
                 ],
-            }
+            },
         ],
         counterActiveUser: 0,
         counterMessages:3,
         flagStatus: false,
+        newMessage: '',
         
     },
     methods: {
         activeUser(index){
           this.counterActiveUser = index;
+        },
+        addNewMessage(){
+           const current = new Date();
+           const data = current.getDate() +'/'+(current.getMonth()+1) +'/'+ current.getFullYear();
+           const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+           const arrNewMessage = {
+              date: data +' '+ time,
+              message: '',
+              status: 'sent'
+            }
+            arrNewMessage.message = this.newMessage;
+            this.users[this.counterActiveUser].messages.push(arrNewMessage);
+            this.newMessage ='';
         }
     },
 })
