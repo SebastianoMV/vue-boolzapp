@@ -165,8 +165,6 @@ const app = new Vue({
             },
         ],
         counterActiveUser: 0,
-        counterMessages:3,
-        flagStatus: false,
         newMessage: '',
         searchUser:'',
         
@@ -191,7 +189,8 @@ const app = new Vue({
             arrNewMessage.message = this.newMessage;
             this.users[this.counterActiveUser].messages.push(arrNewMessage);
             this.newMessage ='';
-            this.addNewRecievedMessage();
+            const myTimeout = setTimeout(this.addNewRecievedMessage, 1000);
+            
         },
         addNewRecievedMessage(){
             const arrRecievedMessage = {
