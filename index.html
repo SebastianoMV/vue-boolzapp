@@ -57,15 +57,25 @@
             <div class="chat-user-container border-right-gray">
 
               <!-- CARD CHAT USER -->
-              <div class="chat-user d-flex" v-for="(user,index) in users" @click="counterActiveUser = index">
+
+              <div  v-for="(user,index) in users" @click="counterActiveUser = index">
+                <div class="chat-user d-flex" v-if="searchUser == ''">
                 <img :src="`img/avatar${user.avatar}.jpg`" alt="">
                 <div class="last-message">
                   <h5><span>{{user.name}}</span> <span class="float-rigth-date">{{user.messages[user.messages.length-1].date}}</span></h5>
                   <p>{{user.messages[user.messages.length-1].message}}</p>
-                  
                 </div>
+                </div>
+                <div class="chat-user d-flex" v-else-if="user.name.includes(searchUser)">
+                  <img :src="`img/avatar${user.avatar}.jpg`" alt="">
+                  <div class="last-message">
+                    <h5><span>{{user.name}}</span> <span class="float-rigth-date">{{user.messages[user.messages.length-1].date}}</span></h5>
+                    <p>{{user.messages[user.messages.length-1].message}}</p>
+                  </div>
+                  </div>
                 
               </div>
+              
             </div>
           </div>
         </div>

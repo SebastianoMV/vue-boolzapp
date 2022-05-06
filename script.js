@@ -168,7 +168,7 @@ const app = new Vue({
         counterMessages:3,
         flagStatus: false,
         newMessage: '',
-        seachUser:'',
+        searchUser:'',
         
     },
     methods: {
