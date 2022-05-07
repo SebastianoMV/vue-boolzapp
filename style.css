@@ -46,7 +46,7 @@
   width: 70%;
 }
 
-.fa-solid{
+.fa-solid, .fa-regular{
   color: gray;
   font-size: 25px;
 }
@@ -232,7 +232,8 @@ img{
 }
 
 .dark-mode-input{
-  background-color: rgb(43, 41, 41);;
+  background-color: rgb(43, 41, 41);
+  color: white;
 }
 
 .dark-mode-image{

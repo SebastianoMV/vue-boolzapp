@@ -30,8 +30,6 @@
                    
                 </i>
                 <div class="smv-dropdown-option">
-                  <a class="dropdown-item" href="#">Info messaggio</a>
-                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#" @click="darkModefunction">Dark mode</a>
                 </div>
             </i>
@@ -45,6 +43,7 @@
             <div class="h-100 d-flex justify-content-between align-items-center">
              <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user" class="mx-2">
               <h5>{{users[counterActiveUser].name}}</h5>
+              
             </div>
             <div class="h-100 d-flex align-items-center justify-content-end px-2">
               <i class="fa-solid fa-magnifying-glass mx-2"></i>
