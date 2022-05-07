@@ -199,7 +199,9 @@ const app = new Vue({
                 status: 'recieved'
             }
             this.users[this.counterActiveUser].messages.push(arrRecievedMessage);
-            
+        },
+        removeMessage(n){
+            this.users[this.counterActiveUser].messages.splice(n -1, 1)
         }
     },
 })

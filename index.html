@@ -103,7 +103,21 @@
           <div class="container-chat-right p-3">
           <div class="message mb-3" v-for="n in users[counterActiveUser].messages.length " :class="users[counterActiveUser].messages[n-1].status">
             <div>
-              <div>{{users[counterActiveUser].messages[n -1].message}}</div>
+              <div>
+                {{users[counterActiveUser].messages[n -1].message}}
+                <div class="chevron-container">
+                  <i class="fa-solid fa-chevron-up chevron-option ">
+                     
+                  </i>
+                  <div class="option-message">
+                    <a class="dropdown-item" href="#">Info messaggio</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" @click="removeMessage(n)">Cancella messaggio</a>
+                  </div>
+                </div>
+              </div>
+             
+              
               <div class="message-date" >{{users[counterActiveUser].messages[n-1].date}}</div>
             </div>
           </div>
