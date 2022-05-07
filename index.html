@@ -12,20 +12,29 @@
 </head>
 <body>
 
-  <div id="app" class="smv-container-main d-flex">
+  <div id="app" class="smv-container-main d-flex" :class="{'dark-mode-body' : darkModeOn == true}">
     
-    <div class="smv-container-wa m-auto">
-      <div class="container-top d-flex"> 
+    <div class="smv-container-wa m-auto" >
+      <div class="container-top d-flex" :class="{'dark-mode-background' : darkModeOn == true}"> 
 
         <!-- TOP LEFT -->
         <div class="width-30 h-100 border-right-gray d-flex justify-content-between align-items-center">
            <div class="h-100 d-flex align-items-center px-2 ">
-             <img src="img/avatar_io.jpg" alt="avatar user">
+             <img src="img/avatar_io.jpg" alt="avatar user" class="mx-2">
              <h5>Seba</h5>
            </div>
            <div class="h-100 d-flex align-items-center justify-content-end px-2">
             <i class="fa-solid fa-message mx-2"></i>
-            <i class="fa-solid fa-ellipsis-vertical mx-2"></i>
+            <i class="fa-solid fa-ellipsis-vertical mx-2  smv-dropdown">
+                <i class="fa-solid fa-chevron-up chevron-option ">
+                   
+                </i>
+                <div class="smv-dropdown-option">
+                  <a class="dropdown-item" href="#">Info messaggio</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" @click="darkModefunction">Dark mode</a>
+                </div>
+            </i>
            
            </div>
         </div>
@@ -34,7 +43,7 @@
         <div class="width-70 h-100">
           <div class="h-100 d-flex justify-content-between align-items-center px-2">
             <div class="h-100 d-flex justify-content-between align-items-center">
-             <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user">
+             <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user" class="mx-2">
               <h5>{{users[counterActiveUser].name}}</h5>
             </div>
             <div class="h-100 d-flex align-items-center justify-content-end px-2">
@@ -66,18 +75,18 @@
           </div>
 
           <!-- CHAT LEFT-->
-          <div class="chat-container pt-2">
-            <div class="input-container m-auto mb-2 d-flex justify-content-between align-items-center">
+          <div class="chat-container pt-2" :class="{'dark-mode-background' : darkModeOn == true}">
+            <div class="input-container m-auto mb-2 d-flex justify-content-between align-items-center" :class="{'dark-mode-input' : darkModeOn == true}">
               <i class="fa-solid fa-magnifying-glass m-auto"></i>
-              <input v-model.trim="searchUser"class="input-form" type="text">
+              <input v-model.trim="searchUser"class="input-form" type="text" :class="{'dark-mode-input' : darkModeOn == true}">
             </div>
-            <div class="chat-user-container border-right-gray">
+            <div class="chat-user-container border-right-gray" :class="{'dark-mode-background' : darkModeOn == true}">
 
               <!-- CARD CHAT USER -->
 
               <div  v-for="(user,index) in users" @click="counterActiveUser = index">
-                <div class="chat-user d-flex" v-if="searchUser == ''">
-                <img :src="`img/avatar${user.avatar}.jpg`" alt="">
+                <div class="chat-user d-flex align-items-center" v-if="searchUser == ''">
+                <img :src="`img/avatar${user.avatar}.jpg`" alt="" class="mx-2">
                 <div class="last-message">
                   <h5><span>{{user.name}}</span> <span class="float-rigth-date">{{user.messages[user.messages.length-1].date}}</span></h5>
                   <p>{{user.messages[user.messages.length-1].message}}</p>
@@ -99,7 +108,7 @@
 
 
         <!-- COLONNA MAIN DESTRA -->
-        <div class="width-70 container-right">
+        <div class="width-70 container-right" :class="{'dark-mode-image' : darkModeOn == true}">
           <div class="container-chat-right p-3">
           <div class="message mb-3" v-for="n in users[counterActiveUser].messages.length " :class="users[counterActiveUser].messages[n-1].status">
             <div>
@@ -124,9 +133,9 @@
          </div>
 
           <!-- FOOTER RIGHT -->
-          <div class="footer-right w-100 d-flex justify-content-evenly align-items-center">
+          <div class="footer-right w-100 d-flex justify-content-evenly align-items-center" :class="{'dark-mode-background' : darkModeOn == true}">
             <i class="fa-regular fa-face-smile"></i>
-            <input v-model.trim="newMessage" class="input-mess" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addNewMessage ">
+            <input v-model.trim="newMessage" class="input-mess" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addNewMessage " :class="{'dark-mode-input' : darkModeOn == true}">
             <i class="fa-solid fa-microphone"></i>
           </div>
         </div>

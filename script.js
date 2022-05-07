@@ -167,6 +167,7 @@ const app = new Vue({
         counterActiveUser: 0,
         newMessage: '',
         searchUser:'',
+        darkModeOn: false,
         
     },
     methods: {
@@ -202,6 +203,10 @@ const app = new Vue({
         },
         removeMessage(n){
             this.users[this.counterActiveUser].messages.splice(n -1, 1)
+        },
+        darkModefunction(){
+            this.darkModeOn = !this.darkModeOn;
+            console.log(this.darkModeOn);
         }
     },
 })
