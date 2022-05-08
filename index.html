@@ -42,8 +42,10 @@
           <div class="h-100 d-flex justify-content-between align-items-center px-2">
             <div class="h-100 d-flex justify-content-between align-items-center">
              <img :src="`img/avatar${users[counterActiveUser].avatar}.jpg`" alt="avatar user" class="mx-2">
-              <h5>{{users[counterActiveUser].name}}</h5>
-              
+             <div>
+                <h5>{{users[counterActiveUser].name}}</h5>
+                <div>Ultimo accesso il {{users[counterActiveUser].messages[users[counterActiveUser].messages.length-1].date}} </div>
+             </div>
             </div>
             <div class="h-100 d-flex align-items-center justify-content-end px-2">
               <i class="fa-solid fa-magnifying-glass mx-2"></i>
