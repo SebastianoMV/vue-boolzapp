@@ -168,6 +168,7 @@ const app = new Vue({
         newMessage: '',
         searchUser:'',
         darkModeOn: false,
+        emptyChat:'Non ci sono messaggi',
         
     },
     methods: {
@@ -202,7 +203,9 @@ const app = new Vue({
             this.users[this.counterActiveUser].messages.push(arrRecievedMessage);
         },
         removeMessage(n){
-            this.users[this.counterActiveUser].messages.splice(n -1, 1)
+            this.users[this.counterActiveUser].messages.splice(n -1, 1);
+            
+            
         },
         darkModefunction(){
             this.darkModeOn = !this.darkModeOn;
