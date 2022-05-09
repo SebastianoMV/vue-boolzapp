@@ -1,3 +1,6 @@
+
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 const app = new Vue({
     el: '#app',
     data:{
@@ -175,16 +178,16 @@ const app = new Vue({
         activeUser(index){
           this.counterActiveUser = index;
         },
-        newDate(){
-            const current = new Date();
-            const data = current.getDate() +'/'+(current.getMonth()+1) +'/'+ current.getFullYear();
-            const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-            const date = data +' '+ time;
-            return date
-        },
+        // newDate(){
+        //     const current = new Date();
+        //     const data = current.getDate() +'/'+(current.getMonth()+1) +'/'+ current.getFullYear();
+        //     const time = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+        //     const date = data +' '+ time;
+        //     return date
+        // },
         addNewMessage(){
            const arrNewMessage = {
-              date: this.newDate(),
+              date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
               message: '',
               status: 'sent'
             }
@@ -196,7 +199,7 @@ const app = new Vue({
         },
         addNewRecievedMessage(){
             const arrRecievedMessage = {
-                date: this.newDate(),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: 'Si vola',
                 status: 'recieved'
             }
